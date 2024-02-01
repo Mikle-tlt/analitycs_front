@@ -22,7 +22,6 @@ const Categories = () => {
   }
 
   const categoryEdit = async (e, categoryId) => {
-    console.log("зашло в обновление")
     e.preventDefault();
     const name = e.target.name.value;
     await updateCategory(name, categoryId)
@@ -34,7 +33,6 @@ const Categories = () => {
   }
 
   const categoryDelete= async (categoryId) => {
-    console.log("зашло в удаление")
     await deleteCategory(categoryId)
       .then(() => {
         toast.success("Категория успешно удалена!", options)
