@@ -8,6 +8,7 @@ import {ToastContainer} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css'
 import Clients from "../clients/clients";
 import Buys from "../buys/buys";
+import Categories from "../categories/categories";
 
 function App() {
   const { user } = useUserStore();
@@ -25,6 +26,7 @@ function App() {
           <Route path='/profiles' element={<Profiles />} />
           <Route path='/clients' element={<Clients />} />
           <Route path='/clients/:clientId/buys' element={<Buys />} />
+          <Route path='/categories' element={<Categories />} />
 
           <Route path='*' element={''} />
         </Routes>
