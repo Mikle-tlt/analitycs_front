@@ -2,6 +2,7 @@ import React from 'react';
 import logo from '../../static/images/logo.png'
 import {useUserStore} from "../../services/user/user-service";
 import {useNavigate} from "react-router-dom";
+import {NavDropdown} from "react-bootstrap";
 
 const Header = () => {
   const { user, logout } = useUserStore();
@@ -30,20 +31,23 @@ const Header = () => {
             {
               manager &&
               <li className="nav-item">
-                <div className="nav-item dropdown" style={{ padding: '8px 16px' }}>
-                  <a className="dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown"
-                     href="#">Онлайн</a>
-                  <div className="dropdown-menu">
-                    <a className="dropdown-item" href="/generalOnline">Общая сводка</a>
-                    <a className="dropdown-item" href="/abc">ABC-анализ</a>
-                    <a className="dropdown-item" href="/xyz">XYZ-анализ</a>
-                    <a className="dropdown-item" href="/profitability">Анализ рентабельности товаров</a>
-                    <a className="dropdown-item" href="/growth">Анализ темпов продаж</a>
-                    <a className="dropdown-item" href="/sold">Анализ продаж по категориям</a>
-                    <a className="dropdown-item" href="/region">Региональный анализ продаж</a>
-                    <a className="dropdown-item" href="/customer">Анализ клиентской базы</a>
-                  </div>
-                </div>
+                <NavDropdown
+                  id="nav-dropdown-dark-example"
+                  title="Онлайн"
+                  menuVariant="dark"
+                  style={{ padding: '8px 16px' }}
+                >
+                  <NavDropdown.Item onClick={() => navigate('analytics/online/general')}>Общая сводка</NavDropdown.Item>
+                  <NavDropdown.Item onClick={() => navigate('analytics/online/abc')}>ABC-анализ</NavDropdown.Item>
+                  <NavDropdown.Item onClick={() => navigate('analytics/online/xyz')}>XYZ-анализ</NavDropdown.Item>
+                  <NavDropdown.Item onClick={() => navigate('analytics/online/profitability')}>
+                    Анализ рентабельности товаров
+                  </NavDropdown.Item>
+                  <NavDropdown.Item onClick={() => navigate('analytics/online/growth')}>Анализ темпов продаж</NavDropdown.Item>
+                  <NavDropdown.Item href="/points">Анализ продаж по категориям</NavDropdown.Item>
+                  <NavDropdown.Item href="/points">Региональный анализ продаж</NavDropdown.Item>
+                  <NavDropdown.Item href="/points">Анализ клиентской базы</NavDropdown.Item>
+                </NavDropdown>
               </li>
             }
             {
@@ -99,15 +103,14 @@ const Header = () => {
                   <a className="nav-link" href="/products">Товары</a>
                 </li>
                 <li  className="nav-item">
-                  <div className="nav-item dropdown" style={{ padding: '8px 16px' }}>
-                    <a className="dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" href="/">
-                      Торговые точки
-                    </a>
-                    <div className="dropdown-menu">
-                      <a className="dropdown-item" href="/offlines">Офлайн точки</a>
-                      <a className="dropdown-item" href="/points">Пункты выдачи</a>
-                    </div>
-                  </div>
+                  <NavDropdown
+                    id="nav-dropdown-dark-example"
+                    title="Торговые точки"
+                    menuVariant="dark"
+                  >
+                    <NavDropdown.Item href="/points/offline">Офлайн точки</NavDropdown.Item>
+                    <NavDropdown.Item href="/points">Пункты выдачи</NavDropdown.Item>
+                  </NavDropdown>
                 </li>
               </>
             }
