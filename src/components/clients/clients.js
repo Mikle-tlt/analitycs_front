@@ -5,6 +5,7 @@ import {options} from "../elements/alert/alert-settings";
 import {useUserStore} from "../../services/user/user-service";
 import {DropdownButton, Dropdown} from "react-bootstrap";
 import {useNavigate} from "react-router-dom";
+import FileUpload from "./file-upload/file-upload";
 
 const Clients = () => {
   const { clients, addClient, updateClient, deleteClient, getClients, setSelectedClient } = useClientsStore();
@@ -63,16 +64,7 @@ const Clients = () => {
           <div className="col text-center mx-auto">
             <h1 className="fw-bold"><span className="pb-2">Клиенты</span></h1>
           </div>
-          <form id="excelImportForm" action="/clients/upload-excel" method="post" encType="multipart/form-data">
-            <div className="row mb-3">
-              <div className="col">
-                <input type="file" name="excelFile" accept=".xlsx, .xls" className="form-control" required />
-              </div>
-              <div className="col-auto">
-                <button type="submit" className="btn btn-success">Импор Excel</button>
-              </div>
-            </div>
-          </form>
+        <FileUpload getClients={getClients}/>
         </div>
         <form onSubmit={clientAdd}>
           <div className="row">
