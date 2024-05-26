@@ -1,0 +1,1 @@
+export { OfflineDetails } from './offline-details';

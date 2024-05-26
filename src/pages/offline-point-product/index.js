@@ -1,0 +1,1 @@
+export { OfflinePointProducts } from './offline-point-products';

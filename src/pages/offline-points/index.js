@@ -1,0 +1,1 @@
+export { OfflinePoints } from './offline-points';

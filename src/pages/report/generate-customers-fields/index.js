@@ -1,0 +1,1 @@
+export { GenerateCustomersFields } from './generate-customers-fields';
